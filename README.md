@@ -1,7 +1,13 @@
 # repdeps
 Dependency transformer for [madge](https://github.com/pahen/madge). Replaces paths in JSON dependency structures.
 
-### Examples using repdeps CLI to transform tree
+## Installation
+
+```sh
+$ npm -g install repdeps
+```
+
+### Examples piping madge output to repdeps to transform tree
 
 This example will convert all `path/...` dependencies to `other`.
 

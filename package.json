@@ -2,7 +2,7 @@
   "name": "repdeps",
   "description": "Dependency transformer for madge. Replaces paths in JSON dependency structures.",
   "version": "0.1.0",
-  "author": "joebowbeer",
+  "author": "Joe Bowbeer <joe.bowbeer@gmail.com>",
   "bin": {
     "repdeps": "cli.js"
   },
@@ -31,5 +31,10 @@
   "bugs": {
     "url": "https://github.com/joebowbeer/repdeps/issues"
   },
-  "homepage": "https://github.com/joebowbeer/repdeps#readme"
+  "homepage": "https://github.com/joebowbeer/repdeps#readme",
+  "keywords": [
+    "madge",
+    "dependency",
+    "dependencies"
+  ]
 }
