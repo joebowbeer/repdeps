@@ -3,6 +3,9 @@
   "description": "Dependency transformer for madge. Replaces paths in JSON dependency structures.",
   "version": "0.1.1",
   "author": "Joe Bowbeer <joe.bowbeer@gmail.com>",
+  "engines": {
+    "node": "8.9.4"
+  },
   "bin": {
     "repdeps": "cli.js"
   },
