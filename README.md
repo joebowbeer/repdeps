@@ -7,7 +7,7 @@ Dependency transformer for [madge](https://github.com/pahen/madge). Replaces pat
 $ npm -g install repdeps
 ```
 
-### Examples piping madge output to repdeps to transform tree
+### Examples: Piping madge output through repdeps to transform tree
 
 This example will convert all `path/...` dependencies to `other`.
 
