@@ -1,7 +1,7 @@
 {
   "name": "repdeps",
   "description": "Dependency transformer for madge. Replaces paths in JSON dependency structures.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Joe Bowbeer <joe.bowbeer@gmail.com>",
   "engines": {
     "node": "8.9.4"
