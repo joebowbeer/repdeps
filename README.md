@@ -1,4 +1,4 @@
-# repdeps
+# repdeps [![Build Status](https://travis-ci.org/joebowbeer/repdeps.svg?branch=master)](https://travis-ci.org/joebowbeer/repdeps)
 Dependency transformer for [madge](https://github.com/pahen/madge). Replaces paths in JSON dependency structures.
 
 ## Installation
