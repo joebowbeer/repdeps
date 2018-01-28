@@ -3,9 +3,12 @@
 'use strict'
 
 if (require.main === module) {
-  const { parent, regex, replacement } = require('yargs')
-    .usage(`Usage: $0 [-p <parent>] [-x <regex>] [-r <replacement>]
 
+  const { replaceChildren, replaceMatchingPaths } = require('./index')
+  const getStdin = require('get-stdin')
+
+  const { parent, regex, replacement } = require('yargs')
+    .usage(`Usage: $0 [-p <parent>] [-x <regex>] [-r <replacement>]\n
 A JSON dependency structure is read from stdin, transformed, and written to stdout.`)
     .example('$0 -p foo', 'Replace "foo/..." paths with "foo"')
     .example('$0 -x "([^\/]*).*" -r "\\$1"', 'Replace all paths by their first component')
@@ -45,9 +48,6 @@ If parent is specified then replacement (-r) is optional and defaults to parent.
       return true
     })
     .argv
-
-  const { replaceChildren, replaceMatchingPaths } = require('./index')
-  const getStdin = require('get-stdin')
 
   getStdin()
     .then(str => {
