@@ -35,7 +35,7 @@ describe('replaceMatchingPaths', function () {
     expect(replaceMatchingPaths({}, /.*/, 'bogus')).to.be.empty
   })
   it('should replace key matching a regex', function () {
-    expect(replaceMatchingPaths({ 'foo/bar': [] }, /^foo\/.*$/, 'baz')).to.eql({ 'baz': [] })
+    expect(replaceMatchingPaths({ 'foo/bar': [] }, /foo\/.*/, 'baz')).to.eql({ 'baz': [] })
   })
   it('should replace key using replacement group syntax', function () {
     expect(replaceMatchingPaths({ 'foo/bar': [] }, /([^/]*).*/, '$1')).to.eql({ 'foo': [] })
