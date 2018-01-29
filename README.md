@@ -9,19 +9,19 @@ $ npm -g install repdeps
 
 ### Examples: Piping madge output through repdeps
 
-This example will convert all `path/...` dependencies to `other`.
+Convert all `path/...` dependencies to `other`.
 
 ```sh
 $ madge --json app.js | repdeps -p 'path' -r 'other' | madge --stdin
 ```
 
-This example will convert all `path/...` dependencies to `path`. Replacement defaults to parent.
+Convert all `path/...` dependencies to `path`. (Replacement defaults to parent.)
 
 ```sh
 $ madge --json app.js | repdeps -p 'path' | madge --stdin
 ```
 
-This example will replace all multipart paths with their first component.
+Replace all multipart paths with their first component.
 
 ```sh
 $ madge --json app.js | repdeps -x '([^\/]*).*' -r '$1' | madge --stdin
