@@ -37,6 +37,10 @@ describe('replaceMatchingPaths', function () {
   it('should replace key matching a regex', function () {
     expect(replaceMatchingPaths({ 'foo/bar': [] }, /foo\/.*/, 'baz')).to.eql({ 'baz': [] })
   })
+  it('should replace entries matching negative lookahead', function () {
+    expect(replaceMatchingPaths({ 'w/o': ['b/c', 'c/o', 'N/A'] }, /^(?!(b|c)\/).*$/, 'x')).to.eql(
+      { 'x': ['b/c', 'c/o'] })
+  })
   it('should replace key using replacement group syntax', function () {
     expect(replaceMatchingPaths({ 'foo/bar': [] }, /([^/]*).*/, '$1')).to.eql({ 'foo': [] })
   })
