@@ -12,17 +12,17 @@ if (require.main === module) {
 A JSON dependency structure is read from stdin, transformed, and written to stdout.`)
     .example('$0 -p foo', 'Replace "foo/..." paths with "foo"')
     .example('$0 -p foo -d', 'Delete "foo/..." paths')
-    .example('$0 -x \'([^/]*).*\' -r \'$1\'', 'Replace all paths by their first component')
     .example('$0 -x \'^(?!foo/).*$\' -d', 'Delete all paths except "foo/..."')
+    .example('$0 -x \'([^/]*).*\' -r \'$1\'', 'Replace all paths by their first component')
     .epilog(`Either a parent (-p) or a regex (-x) is required, but not both.
-Either a replacement string (-r) or deletion (-d) is required, but not both.
+Either a replacement (-r) or a deletion (-d) is required, but not both.
 If only parent is specified, replacement is assumed and defaults to parent.`)
     .showHelpOnFail(false, 'Specify --help for available options')
     .strict()
     .option('parent', {
       alias: 'p',
       demand: false,
-      describe: 'Parent of paths to replace',
+      describe: 'Parent for selecting paths',
       nargs: 1,
       type: 'string'
     })
@@ -30,7 +30,7 @@ If only parent is specified, replacement is assumed and defaults to parent.`)
       alias: 'x',
       conflicts: 'parent',
       demand: false,
-      describe: 'Regex matching paths to replace',
+      describe: 'Regex for selecting paths',
       nargs: 1,
       type: 'string'
     })
@@ -46,7 +46,7 @@ If only parent is specified, replacement is assumed and defaults to parent.`)
       conflicts: 'replacement',
       default: undefined,
       demand: false,
-      describe: 'Deletion mode',
+      describe: 'Delete selected paths',
       requiresArg: false,
       type: 'boolean'
     })
