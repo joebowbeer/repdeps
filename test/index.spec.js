@@ -1,6 +1,6 @@
 'use strict'
 
-const { replaceChildren, replaceMatchingPaths } = require('../index')
+const { replaceChildren, replaceMatchingPaths, deleteChildren, deleteMatchingPaths } = require('../index')
 const expect = require('chai').expect
 
 describe('replaceChildren', function () {
@@ -43,5 +43,29 @@ describe('replaceMatchingPaths', function () {
   })
   it('should replace key using replacement group syntax', function () {
     expect(replaceMatchingPaths({ 'foo/bar': [] }, /([^/]*).*/, '$1')).to.eql({ 'foo': [] })
+  })
+})
+
+describe('deleteChildren', function () {
+  it('should return empty object when deps is empty', function () {
+    expect(deleteChildren({}, 'bogus')).to.be.empty
+  })
+  it('should delete key matching parent', function () {
+    expect(deleteChildren({ 'foo/bar': [] }, 'foo')).to.eql({})
+  })
+  it('should delete value matching parent', function () {
+    expect(deleteChildren({ 'baz': ['foo/bar'] }, 'foo')).to.eql({ 'baz': [] })
+  })
+})
+
+describe('deleteMatchingPaths', function () {
+  it('should return empty object when deps is empty', function () {
+    expect(deleteMatchingPaths({}, /.*/, 'bogus')).to.be.empty
+  })
+  it('should delete key matching a regex', function () {
+    expect(deleteMatchingPaths({ 'foo/bar': [] }, /foo\/.*/)).to.eql({})
+  })
+  it('should delete value matching regex', function () {
+    expect(deleteMatchingPaths({ 'baz': ['foo/bar'] }, /foo\/.*/)).to.eql({ 'baz': [] })
   })
 })
