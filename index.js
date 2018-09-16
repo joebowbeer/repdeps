@@ -18,6 +18,11 @@ function deleteMatchingPaths(deps, regex) {
   return replaceMatchingPaths(deps, regex, DELETED)
 }
 
+function untestedMatching(deps, parentPath) {
+  console.log('this line is not tested')
+  return 'bogus'
+}
+
 function replacePaths(deps, replacer) {
   const result = {}
   // Replace all paths matching regex in keys and values
