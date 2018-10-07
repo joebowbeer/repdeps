@@ -3,4 +3,4 @@ node_js:
   - lts/*
 script:
   - npm run test-with-coverage
-  - ./node_modules/.bin/codecov
+  - ./node_modules/.bin/codecov -X detect -c $TRAVIS_COMMIT
