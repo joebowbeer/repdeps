@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - lts/*
+  - node
 script:
   - npx nyc npm test
   - npx nyc report --reporter=text-lcov > coverage.lcov
