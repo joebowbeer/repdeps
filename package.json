@@ -3,11 +3,14 @@
   "description": "Dependency transformer for madge. Replaces paths in JSON dependency structures.",
   "version": "1.0.0",
   "author": "Joe Bowbeer <joe.bowbeer@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
   "bin": {
     "repdeps": "cli.js"
   },
-  "license": "MIT",
-  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
   "scripts": {
     "test": "mocha",
     "test-with-coverage": "nyc --reporter=text npm test"
