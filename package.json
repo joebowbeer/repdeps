@@ -1,7 +1,7 @@
 {
   "name": "repdeps",
   "description": "Dependency transformer for madge. Replaces paths in JSON dependency structures.",
-  "version": "0.3.4",
+  "version": "1.0.0",
   "author": "Joe Bowbeer <joe.bowbeer@gmail.com>",
   "bin": {
     "repdeps": "cli.js"
@@ -13,14 +13,14 @@
     "test-with-coverage": "nyc --reporter=text npm test"
   },
   "dependencies": {
-    "get-stdin": "^6.0.0",
-    "yargs": "^12.0.5"
+    "get-stdin": "^7.0.0",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "codecov": "^3.1.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.3.0"
+    "codecov": "^3.6.5",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0"
   },
   "directories": {
     "test": "test"
