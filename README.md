@@ -1,4 +1,4 @@
-# repdeps [![Build Status](https://travis-ci.org/joebowbeer/repdeps.svg?branch=master)](https://travis-ci.org/joebowbeer/repdeps) [![codecov](https://codecov.io/gh/joebowbeer/repdeps/branch/master/graph/badge.svg)](https://codecov.io/gh/joebowbeer/repdeps)
+# repdeps [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=joebowbeer_repdeps&metric=coverage)](https://sonarcloud.io/summary/new_code?id=joebowbeer_repdeps)
 
 Dependency transformer for [madge](https://github.com/pahen/madge). Replaces paths in JSON dependency structures.
 
