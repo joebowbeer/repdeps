@@ -1,30 +1,23 @@
-name: Node.js CI
-
+name: Build
 on:
   push:
     branches:
       - master
   pull_request:
-    branches:
-      - master
-
-env:
-  CI: true
-
+    types: [opened, synchronize, reopened]
 jobs:
-  build:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # Disable shallow clones for better analysis
-      - uses: actions/setup-node@v2
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/setup-node@v6
         with:
-          node-version: 14
-      - run: npm ci
-      - run: npm t
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
+          node-version: 24
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
