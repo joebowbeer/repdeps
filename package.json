@@ -26,7 +26,9 @@
   "directories": {
     "test": "test"
   },
-  "repository": "github:joebowbeer/repdeps",
+  "repository": {
+    "url": "git+https://github.com/joebowbeer/repdeps.git"
+  },
   "bugs": {
     "url": "https://github.com/joebowbeer/repdeps/issues"
   },
