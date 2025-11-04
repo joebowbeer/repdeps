@@ -21,6 +21,12 @@ jobs:
           node-version: lts/*
           registry-url: https://registry.npmjs.org
       - run: npm install -g npm@latest
+      # Run various npm commands to trigger the warning
+      - run: npm --version
+      - run: npm config ls
+      - name: Inspect the config set up by setup-node
+        run: |
+          cat /home/runner/work/_temp/.npmrc
       - run: npm ci
       - run: npm t
-      - run: npm publish
+      - run: npm publish --access public
