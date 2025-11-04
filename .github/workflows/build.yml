@@ -6,8 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -16,8 +15,10 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+      - run: npm ci
+      - run: npm t
+      - if: github.actor != 'dependabot[bot]'
+        name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@fd88b7d7ccbaefd23d8f36f73b59db7a3d246602 # v6.0.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
