@@ -6,18 +6,20 @@ on:
       - 'v*'
 
 permissions:
-  id-token: write  # Required for OIDC
   contents: read
+  id-token: write  # Required for OIDC
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
-          registry-url: 'https://registry.npmjs.org'
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm t
       - run: npm publish
