@@ -36,3 +36,4 @@
             run: |
               git log --branches --not --remotes
               git push origin HEAD
+              git push origin --tags
