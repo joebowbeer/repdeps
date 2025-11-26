@@ -6,8 +6,10 @@ if (require.main === module) {
 
   const repdeps = require('./index')
   const getStdin = require('get-stdin')
+  const yargs = require('yargs/yargs');
+  const { hideBin } = require('yargs/helpers');
 
-  const { parent, regex, replacement, deletion } = require('yargs')
+  const { parent, regex, replacement, deletion } = yargs(hideBin(process.argv))
     .usage(`Usage: $0 [-p <parent>] [-x <regex>] [-r <replacement>] [-d]\n
 A JSON dependency structure is read from stdin, transformed, and written to stdout.`)
     .example('$0 -p foo', 'Replace "foo/..." paths with "foo"')
