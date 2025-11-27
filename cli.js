@@ -5,7 +5,7 @@
 if (require.main === module) {
 
   const repdeps = require('./index')
-  import getStdin from 'get-stdin'
+  const { text } = require ('node:stream/consumers')
   const yargs = require('yargs/yargs')
   const { hideBin } = require('yargs/helpers')
 
@@ -68,7 +68,7 @@ If only parent is specified, replacement is assumed and defaults to parent.`)
     })
     .argv
 
-  getStdin()
+  text(process.stdin)
     .then(str => {
       const deps = JSON.parse(str)
       return parent
