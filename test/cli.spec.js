@@ -7,6 +7,6 @@ const test = (input, args) => {
 
 describe("CLI", () => {
   it("should run", () => {
-    expect(test("{}", "-p foo")).to.equal("{}\n")
+    expect(test("{}", "-p foo")).to.equal("{}")
   })
 })
