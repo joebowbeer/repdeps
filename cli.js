@@ -5,7 +5,7 @@
 if (require.main === module) {
 
   const repdeps = require('./index')
-  const getStdin = require('get-stdin')
+  import getStdin from 'get-stdin'
   const yargs = require('yargs/yargs')
   const { hideBin } = require('yargs/helpers')
 
