@@ -23,7 +23,7 @@
   "devDependencies": {
     "chai": "^6.2.0",
     "mocha": "^11.7.4",
-    "nyc": "^17.1.0"
+    "nyc": "^18.0.0"
   },
   "directories": {
     "test": "test"
